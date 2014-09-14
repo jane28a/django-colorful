@@ -11,8 +11,8 @@ setup(
     description='An extension to the Django web framework that provides database and form color fields',
     long_description=open('README.markdown').read(),
     url=github_url,
-    author='Simon Charette',
-    author_email='charette.s@gmail.com',
+    author='Ivan Morgun',
+    author_email='',
     requires=[
         'Django (>=1.5)',
     ],

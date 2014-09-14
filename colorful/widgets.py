@@ -10,25 +10,26 @@ class ColorFieldWidget(TextInput):
         css = {
             'all': ("colorful/colorPicker.css",)
         }
-        js = ("colorful/jQuery.colorPicker.js",)
+        js = ("colorful/jquery.colorPicker.js",)
 
-    input_type = 'color'
+    input_type = 'text'
 
-    def render_script(self, id):
+    def __init__(self, attrs={}):
+        self.options = attrs.get('options', {})
+        super(ColorFieldWidget, self).__init__(attrs)
+
+    def render_script(self, id, options):
         return '''<script type="text/javascript">
                     (function($){
                         $(document).ready(function(){
-                            $('#%s').each(function(i, elm){
-                                // Make sure html5 color element is not replaced
-                                if (elm.type != 'color') $(elm).colorPicker();
-                            });
+                            $('#%s').colorPicker(%s);
                         });
                     })('django' in window ? django.jQuery: jQuery);
                 </script>
-                ''' % id
+                ''' % (id, options)
 
     def render(self, name, value, attrs={}):
         if 'id' not in attrs:
             attrs['id'] = "id_%s" % name
         render = super(ColorFieldWidget, self).render(name, value, attrs)
-        return mark_safe("%s%s" % (render, self.render_script(attrs['id'])))
+        return mark_safe("%s%s" % (render, self.render_script(attrs['id'], self.options)))
