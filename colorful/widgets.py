@@ -15,7 +15,7 @@ class ColorFieldWidget(TextInput):
     input_type = 'text'
 
     def __init__(self, attrs={}):
-        self.options = attrs.get('options', {})
+        self.options = attrs.get('options', '')
         super(ColorFieldWidget, self).__init__(attrs)
 
     def render_script(self, id, options):
