@@ -51,16 +51,19 @@
             // Setup time. Clone new elements from our templates, set some IDs, make shortcuts, jazzercise.
             var element      = $(this),
                 opts         = $.extend({}, $.fn.colorPicker.defaults, options),
-                defaultColor = $.fn.colorPicker.toHex(
-                        (element.val().length > 0) ? element.val() : opts.pickerDefault
-                    ),
                 newControl   = templates.control.clone(),
                 newPalette   = templates.palette.clone().attr('id', 'colorPicker_palette-' + cItterate),
                 newHexLabel  = templates.hexLabel.clone(),
                 newHexField  = templates.hexField.clone(),
                 paletteId    = newPalette[0].id,
+                defaultColor = "",
                 swatch, controlText;
 
+            if (opts.pickerDefault.length > 0 || element.val().length > 0) {
+                defaultColor = $.fn.colorPicker.toHex(
+                    (element.val().length > 0) ? element.val() : opts.pickerDefault
+                );
+            }
 
             /**
              * Build a color palette.
