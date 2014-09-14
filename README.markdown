@@ -8,7 +8,8 @@ Written by Simon Charette
 Inspired by http://djangosnippets.org/snippets/1261/
 Built with https://github.com/laktek/really-simple-color-picker
 
-** Changes **
+Changes
+-------------
 
 1. Updated *jquery.colorPicker.js* to last version.
 2. You can set options in ``attrs`` when defining ``ColorFieldWidget``. See usage below.
