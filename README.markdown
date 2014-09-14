@@ -14,6 +14,17 @@ Changes
 1. Updated *jquery.colorPicker.js* to last version.
 2. You can set options in ``attrs`` when defining ``ColorFieldWidget``. See usage below.
 
+Install
+-------------
+
+The extension will take care of providing the custom widget, just make sure you include the static files and jQuery >= 1.2.
+
+Install
+
+    pip install git+https://github.com/proft/django-colorful.git#egg=django-colorful
+
+Add ``'colorful'`` to project's ``INSTALLED_APPS``.
+
 Usage
 -------------
 In order to use a color field you just have to add it to your model definition:
@@ -39,7 +50,3 @@ Redefining options
     class BookAdmin(admin.ModelAdmin):
         form = BookForm
 
-The extension will take care of providing the custom widget, just make sure you
-include the static files and jQuery >= 1.2.
-
-In order to use with django.contrib.staticfiles add ``'colorful'`` to project's ``INSTALLED_APPS``.
